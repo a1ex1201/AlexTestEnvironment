@@ -1,5 +1,5 @@
 To do : 
- - Add in session management and userauth
+ - Add in session management
  - Add an accounts page as a partial test for session management
  - Setup posts accounts can make to test interaction between different users and session management
  - Add in sign in with google/apple
