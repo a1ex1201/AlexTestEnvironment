@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sign-up</title>
+  <link rel="stylesheet" href="homepagestyle.css">
+  <link rel="icon" type="image/png" href="webtopperlogo.png">
+</head>
+<body class="signup">
+  <ul class="navbar">
+    <li class="navbar"><a class="navbar" href="landingpage.html">Home</a></li>
+    <li class="navbar"><a class="navbar" href="loginpage.html">Login</a></li>
+    <li class="navbar"><a class="navbar" href="signuppage.html">Signup</a></li>
+  </ul>
+
+  <div class="signup">
+    <h1 class="signup">Sign-up</h1>
+    <p class="signup">Sign-up by filling in the details below</p>
+
+    <form id="signupForm" method="post" onsubmit="return validatePassword(event)">
+      <label class="signup" for="email">Email</label>
+      <input placeholder="Email" class="signup" type="email" id="email" name="email" required><br><br>
+
+      <label class="signup" for="username">Username</label>
+      <input placeholder="Username" class="signup" type="text" id="username" name="username" required><br><br>
+      
+      <label class="signup" for="password">Password</label>
+      <input placeholder="Password" class="signup" type="password" id="password" name="password" required><br><br>
+
+      <label class="signup" for="cpassword">Confirm Password</label>
+      <input placeholder="Password" class="signup" type="password" id="cpassword" name="cpassword" required><br><br>
+
+      <p class="signup"><a href="loginpage.html">Already have an account? Log in here!</a></p>
+      
+      <span id="message"></span><br><br>
+
+      <button class="signup" type="submit">Sign up</button>
+    </form>
+  </div>
+
+  <script>
+    function validatePassword(event) {
+      event.preventDefault();
+
+      const email = document.getElementById("email").value;
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+      const cpassword = document.getElementById("cpassword").value;
+      const message = document.getElementById("message");
+
+      if (password !== cpassword) {
+        message.textContent = "Passwords do not match!";
+        return false;
+      }
+      saveJSON(email, username, password);
+      return false;
+    }
+
+    async function saveJSON(email, username, hash) {
+      const data = { email, username, password: hash };
+
+      try {
+        const response = await fetch('/signup', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+
+        if (response.ok) {
+          const result = await response.json();
+          document.getElementById("message").textContent = result.message;
+          window.location.href = "loginpage.html";
+        } else {
+          document.getElementById("message").textContent = "Error during sign-up. Please try again.";
+        }
+      } catch (err) {
+        console.error("Fetch error:", err);
+        document.getElementById("message").textContent = "Network error. Please try again.";
+      }
+    }
+  </script>
+</body>
+</html>

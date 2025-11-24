@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Log-in</title>
+    <link rel="stylesheet" href="homepagestyle.css">
+    <link rel="icon" type="image/png" href="webtopperlogo.png">
+</head>
+<body class="signup">
+  <ul class="navbar">
+      <li class="navbar"><a class="navbar" href="landingpage.html">Home</a></li>
+      <li class="navbar"><a class="navbar" href="loginpage.html">Login</a></li>
+      <li class="navbar"><a class="navbar" href="signuppage.html">Signup</a></li>
+  </ul>
+  <div class="signup">
+  <h1 class="signup">Login</h1>
+  <p class="signup">Please enter your details below</p>
+
+  <form id="loginForm" method="post" onsubmit="return loginUser(event);">
+
+    <label class="signup" for="username">Username</label>
+    <input placeholder="Username" class="signup" type="text" id="username" name="username" required><br><br>
+    
+    <label class="signup" for="password">Password</label>
+    <input placeholder="Password" class="signup" type="password" id="password" name="password" required><br><br>
+
+    <p class ="signup"><a href="signuppage.html">Dont have an account? Sign up here!</a></p>
+
+    <span id="message"></span><br><br>
+
+    <button class="signup" type="submit">Login</button>
+  </form>
+  </div>
+</body>
+<script>
+  async function loginUser() {
+    event.preventDefault();
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+    const message = document.getElementById("message");
+    try {
+      const response = await fetch('/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ username, password })
+      });
+      if(response.ok) {
+        const result = await response.json();
+        document.getElementById("message").textContent = result.message;
+        window.location.href = "homepage.html";
+      } else {
+        document.getElementById("message").textContent = "Invalid username or password. Please try again.";
+      }
+    }
+    catch (err) {
+      console.error('Error during login:', err);
+      document.getElementById("message").textContent = "Error during login. Please try again.";
+    }
+
+  }
+</script>

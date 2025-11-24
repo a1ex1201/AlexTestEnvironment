@@ -1,0 +1,103 @@
+html{
+    scroll-behavior: smooth;
+}
+input.signup {
+    width: 90%;
+    height: 10%;
+    border-radius: 7.5px;
+    border-color: #6e6c6c69;
+    background-color: #F8F9FA;
+    padding: 7.5px;
+    text-align: left;
+    display: block;
+    margin: center;
+    font-family: 'Segoe UI', 'Roboto', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+}
+p.signup{
+    display:block;
+    text-align: center;
+    font-family: 'Segoe UI', 'Roboto', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+    font-size: large;
+}
+label.signup{
+    display:block;
+    text-align: left;
+    font-family: 'Segoe UI', 'Roboto', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+    font-size: 8;
+    font-weight: light;
+}
+button.signup{
+    display:block;
+    margin: auto;
+    width:50%;
+    height:50px;
+    font-size: 20px;
+    color: aliceblue;
+    border-radius: 15px;
+    font-family: 'Segoe UI', 'Roboto', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+    background-color: #4F8C7C;
+    font-weight: lighter;
+}
+
+h1.signup{
+    display:block;
+    text-align: center;
+    font-weight:normal;
+    color: #4F8C7C;
+    font-family: 'Segoe UI', 'Roboto', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+}
+
+div.signup {
+    width: 50%;
+    max-width: 600px;
+    margin: auto;
+    margin-top: 5rem;
+    padding: 20px;
+    background-color: #F8F9FA;
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 1px 1px, rgba(91, 154, 139, 0.16) 0px 2px 2px, rgba(91, 154, 139, 0.24) 0px 4px 4px, rgba(91, 154, 139, 0.32) 0px 8px 8px, rgba(91, 154, 139, 0.4) 0px 16px 16px;
+}
+button.signup:hover{
+    transition-duration: 150ms;
+    background-color: #999b9a;
+    cursor:pointer;
+}
+body.signup{
+    background-color: rgba(91, 154, 139, 0.4);
+    
+}
+ul.navbar{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    background-color: #F8F9FA;
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 0.5px 0.5px, rgba(91, 154, 139, 0.16) 0px 2px 2px, rgba(91, 154, 139, 0.24) 0px 4px 4px, rgba(91, 154, 139, 0.32) 0px 8px 8px, rgba(91, 154, 139, 0.4) 0px 16px 16px;
+}
+ul li.navbar{
+    float: left;
+}
+ul li a.navbar{
+    display: block;
+    color: rgb(0, 0, 0);
+    padding: 30px 16px;
+    text-decoration: none;
+    font-family: 'Segoe UI', 'Roboto', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+    border-radius: 15px;
+}
+
+ul li a.navbar:hover{
+    background-color: rgba(91, 154, 139, 0.4);
+}
+
+ul li.navbarlp{
+    float: right;
+}
+
+li.landing{
+
+    font-family: 'Segoe UI', 'Roboto', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+    font-size: normal;
+    font-weight: normal;
+}
