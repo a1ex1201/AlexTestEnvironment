@@ -3,25 +3,5 @@
     "email": "test@gmail.com",
     "username": "test",
     "password": "$2b$10$r9qTd7FAhEPHJRfV9ueQ/eoRIp5TZzvstLQBFQaKfCvmzIKgJ4iPq"
-  },
-  {
-    "email": "admin@gmail.com",
-    "username": "admin",
-    "password": "$2b$10$VpxUcg6xBriIP4ahwSNvI.BXsu9yWYBpR1pTxwjoRDogq3bFppCqK"
-  },
-  {
-    "email": "rubywesty2006@gmail.com",
-    "username": "rubyweston2006",
-    "password": "$2b$10$SD4WUXgbGp6ZEC4/sgLeRuNaRyknaoLwMf7dR2vSP86swwIjvNlzm"
-  },
-  {
-    "email": "testacc@htm.com",
-    "username": "testacc",
-    "password": "$2b$10$/Eg3hgTxbOlVcnEZmozk2O57MSgIo7Y5IAWNaX6np7P09NpVT5Tgq"
-  },
-  {
-    "email": "ethangillson1@gmail.com",
-    "username": "Alex",
-    "password": "$2b$10$FkO6pdfNOE69/4yMQWKvU.BU34JZlue9T0qdY1iQDCWrH6mvSe1sm"
   }
 ]
