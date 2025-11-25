@@ -41,7 +41,7 @@ app.post('/signup', (req, res) => {
         }
 
         userData.password = hash;
-        console.log('\x1b[35;40;1m','Received signup data:', userData);
+        console.log('\x1b[35;40;1m','Received signup data:', userData, "\n admin:", userData.admin);
 
         const filePath = path.join(__dirname, 'private', 'users.json');
         let users = [];
@@ -84,7 +84,7 @@ app.post('/login', (req, res) => {
                     console.error('Error saving session:', saveErr);
                     return res.status(500).json({ message: 'Internal server error' });
                 }
-                console.log('\x1b[32;40;1m','User logged in:', req.session.user.username);
+                console.log('\x1b[32;40;1m','User logged in: @',req.session.user.username, "|| admin:", user.admin);
                 res.json({ message: 'Login successful', username: req.session.user.username });
             });
         } 

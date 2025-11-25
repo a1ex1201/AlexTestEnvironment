@@ -17,5 +17,11 @@
     "username": "qwerty",
     "password": "$2b$10$HLELtRm6RutlzuLMiqYlje9uV6Qvz8qyw3sLT6TTAt6tqkx34.9bK",
     "admin": false
+  },
+  {
+    "email": "testacc@htm.com",
+    "username": "testacc",
+    "password": "$2b$10$iQ1Nlp/mcIbdBz5zUH76AekTCUr8OmzLDaC/DHuvnNlbD84EcuYmm",
+    "admin": false
   }
 ]
