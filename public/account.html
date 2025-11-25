@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome</title>
+    <link rel="stylesheet" href="homepagestyle.css">
+    <link rel="icon" type="image/png" href="webtopperlogo.png">
+</head>
+<body class="signup">
+  <ul class="navbar">
+    <li class="navbar"><a class="navbar" href="homepage.html">Home</a></li>
+    <li class="navbar"><a class="navbar" href="account.html">Account</a></li>
+    <li class="navbar"><a href="#" class ="navbar" onclick="logout()">Logout</a></li>
+  </ul>
+  <ul class="landing"></ul>
+<div class="posts">
+  <p class="post" id="userNameDashboardAcc"></p>
+  <p class="post" id="userNameDashboardEma"></p>
+</div>
+<p id="welcome"></p>
+<div id="feed"></div>
+ 
+
+<script>
+async function loadDashBoard(){
+    try{
+      const response = await fetch('/dashboard', {credentials: 'include'});
+      if (response.ok) {
+        const data = await response.json();
+        document.getElementById('userNameDashboardAcc').textContent = 'Account Name: ' + data.username;
+        document.getElementById('userNameDashboardEma').textContent = 'Email: ' + data.email;
+      } else {
+        document.getElementById('welcome').textContent = 'Error loading dashboard';
+        window.location.href = 'loginpage.html';
+      }
+    } catch (error) {
+      console.error('Error loading dashboard:', error);
+      window.location.href = 'loginpage.html';
+    }
+  }
+  loadDashBoard();
+  async function logout() {
+    await fetch('/logout');
+    window.location.href = 'loginpage.html';
+  }
+
+  async function loadUserPosts(){
+    try{
+        const response = await fetch('/getUserPosts', {credentials: 'include'});
+        if (response.ok) {
+            const posts = await response.json();
+            const feed = document.getElementById('feed');
+            feed.innerHTML = '';
+            posts.forEach(post => {
+                const postElement = document.createElement('div');
+                postElement.innerHTML = `
+                <div class="posts">
+                  <p class="postContent"><strong>${post.username}</strong> (${new Date(post.timestamp).toLocaleString()}):</p>
+                  <p class="postContent">${post.content}</p>
+                  <button class="deletepost" onclick="deletePost('${post.postId}')">Delete</button>
+                </div>
+                `;
+                feed.appendChild(postElement);
+            });
+        } else {
+            document.getElementById('feed').textContent = 'Error loading posts';
+        }
+    }
+        catch (error) {
+        console.error('Error loading posts:', error);
+    }
+};
+  async function deletePost(postId) {
+    try {
+      const response = await fetch(`/deletePost/${postId}`, {
+        method: 'DELETE',
+        credentials: 'include'
+      });
+
+      if (response.ok) {
+        alert('Post deleted successfully!');
+        fetchPosts();
+      } else {
+        alert('Error deleting post.');
+      }
+    } catch (error) {
+      console.error('Error deleting post:', error);
+    }
+  }
+loadUserPosts();
+setInterval(loadUserPosts, 5000);
+</script>

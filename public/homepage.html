@@ -1,14 +1,113 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Welcome</title>
     <link rel="stylesheet" href="homepagestyle.css">
     <link rel="icon" type="image/png" href="webtopperlogo.png">
 </head>
 <body class="signup">
-    <ul class="navbar">
-    <li class="navbar"><a class="navbar" href="landingpage.html">Home</a></li>
-    <li class="navbar"><a class="navbar" href="loginpage.html">Login</a></li>
-    <li class="navbar"><a class="navbar" href="signuppage.html">Signup</a></li>
+  <ul class="navbar">
+    <li class="navbar"><a class="navbar" href="homepage.html">Home</a></li>
+    <li class="navbar"><a class="navbar" href="account.html">Account</a></li>
+    <li class="navbar"><a href="#" class ="navbar" onclick="logout()">Logout</a></li>
   </ul>
+<div class="posts">
+  <p class="post">Welcome to my project, if you have any queries or feedback feel free to send me an email at alex.duffield1201@gmail.com</p>
+</div>
+<div class="posts">
+
+  <p class="post">Enter new post:</p>
+  <textarea class ="post" type="text" id="postContent" placeholder="What's on your mind?"></textarea><br><br>
+  <button class="post" onclick="post()">Post</button>
+</div>
+<div id="feed"></div>
+
+<script>
+async function logout() {
+    await fetch('/logout');
+    window.location.href = 'loginpage.html';
+  }
+async function fetchPosts() {
+    try {
+      const response = await fetch('/getPosts', { credentials: 'include' });
+      if (response.ok) {
+        const posts = await response.json();
+        const feed = document.getElementById('feed');
+        feed.innerHTML = '';
+        posts.forEach(post => {
+          const postElement = document.createElement('div');
+          postElement.classList.add('post');
+          postElement.innerHTML = `
+          <div class="posts">
+            <p class="postContent"><strong>${post.username}</strong> (${new Date(post.timestamp).toLocaleString()}):</p>
+            <p class="postContent">${post.content}</p>
+            <button class="deletepost" onclick="deletePost('${post.postId}')">Delete</button>
+          </div>
+          `;
+          feed.appendChild(postElement);
+        });
+      }
+        else {
+          document.getElementById('feed').textContent = 'Error loading posts';
+        }
+      }
+      catch (error) {
+      console.error('Error loading posts:', error);
+      }
+    }
+fetchPosts();
+setInterval(fetchPosts, 5000);
+async function post(){
+    const content = document.getElementById("postContent").value;
+    const data = { content };
+
+    try {
+      const response = await fetch('/submitPost', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data),
+        credentials: 'include'
+      });
+
+      if (response.ok) {
+        alert('Post submitted successfully!');
+        document.getElementById("postContent").value = '';
+        console.log('Post data submitted:', data);
+        fetchPosts();
+      } else {
+        alert('Error submitting post.');  
+      }
+    } catch (error) {
+      console.error('Error submitting post:', error);
+    }
+
+  };
+  async function deletePost(postId) {
+    try {
+      const response = await fetch(`/deletePost/${postId}`, {
+        method: 'DELETE',
+        credentials: 'include'
+      });
+
+      if (response.ok) {
+        alert('Post deleted successfully!');
+        fetchPosts();
+      } else {
+        alert('You can only delete your own posts, button will be updated for user only view in further releases.');
+      }
+    } catch (error) {
+      console.error('Error deleting post:', error);
+    }
+  }
+  fetchPosts();
+
+
+
+
+</script>
 </body>
+</html>
+

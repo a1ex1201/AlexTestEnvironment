@@ -1,12 +1,27 @@
 [
   {
-    "email": "alex.duffield1201@gmail.com",
-    "username": "a1ex",
-    "password": "$2b$10$lHAZDBGqkWCy7HtWwto7ne1TNHq6M32F0AUvpEjn8IZpbupe69dCq"
+    "email": "test@gmail.com",
+    "username": "test",
+    "password": "$2b$10$r9qTd7FAhEPHJRfV9ueQ/eoRIp5TZzvstLQBFQaKfCvmzIKgJ4iPq"
   },
   {
-    "email": "smellybum@hotmail.com",
-    "username": "ruby",
-    "password": "$2b$10$96Rbq8yN.gsN59UjHK6mEuEoxlrvUwDemnhr4Vh.9OEfMuOQ3pmne"
+    "email": "admin@gmail.com",
+    "username": "admin",
+    "password": "$2b$10$VpxUcg6xBriIP4ahwSNvI.BXsu9yWYBpR1pTxwjoRDogq3bFppCqK"
+  },
+  {
+    "email": "rubywesty2006@gmail.com",
+    "username": "rubyweston2006",
+    "password": "$2b$10$SD4WUXgbGp6ZEC4/sgLeRuNaRyknaoLwMf7dR2vSP86swwIjvNlzm"
+  },
+  {
+    "email": "testacc@htm.com",
+    "username": "testacc",
+    "password": "$2b$10$/Eg3hgTxbOlVcnEZmozk2O57MSgIo7Y5IAWNaX6np7P09NpVT5Tgq"
+  },
+  {
+    "email": "ethangillson1@gmail.com",
+    "username": "Alex",
+    "password": "$2b$10$FkO6pdfNOE69/4yMQWKvU.BU34JZlue9T0qdY1iQDCWrH6mvSe1sm"
   }
 ]
