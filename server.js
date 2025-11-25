@@ -33,7 +33,7 @@ app.get('/', (req, res) => {
 app.post('/signup', (req, res) => {
     const userData = req.body;
     const userPassword = userData.password;
-
+    userData.admin=false;
     bcrypt.hash(userPassword, saltRounds, (err, hash) => {
         if (err) {
             console.error('Error hashing password:', err);
@@ -45,7 +45,6 @@ app.post('/signup', (req, res) => {
 
         const filePath = path.join(__dirname, 'private', 'users.json');
         let users = [];
-
         if (fs.existsSync(filePath)) {
             try {
             const fileData = fs.readFileSync(filePath, 'utf8');

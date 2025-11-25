@@ -50,10 +50,12 @@ async function fetchPosts() {
       }
         else {
           document.getElementById('feed').textContent = 'Error loading posts';
+          window.location.href = 'loginpage.html';
         }
       }
       catch (error) {
       console.error('Error loading posts:', error);
+      window.location.href = 'loginpage.html';
       }
     }
 fetchPosts();

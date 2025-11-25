@@ -2,6 +2,20 @@
   {
     "email": "test@gmail.com",
     "username": "test",
-    "password": "$2b$10$r9qTd7FAhEPHJRfV9ueQ/eoRIp5TZzvstLQBFQaKfCvmzIKgJ4iPq"
+    "password": "$2b$10$r9qTd7FAhEPHJRfV9ueQ/eoRIp5TZzvstLQBFQaKfCvmzIKgJ4iPq",
+    "admin": true
+  },
+  {
+    "email": "test@gmail.com",
+    "username": "test",
+    "password": "$2b$10$r9qTd7FAhEPHJRfV9ueQ/eoRIp5TZzvstLQBFQaKfCvmzIKgJ4iPq",
+    "admin": false
+  },
+  "[object Object]\nadmin: false",
+  {
+    "email": "qwerty@gmail.com",
+    "username": "qwerty",
+    "password": "$2b$10$HLELtRm6RutlzuLMiqYlje9uV6Qvz8qyw3sLT6TTAt6tqkx34.9bK",
+    "admin": false
   }
 ]
