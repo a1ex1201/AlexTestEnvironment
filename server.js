@@ -21,9 +21,6 @@ app.use(session({
         maxAge: 24 * 60 * 60 * 1000 
     }
 }));
-
-
-
 app.use(express.static(path.join(__dirname, 'public')));
 
 
@@ -78,7 +75,7 @@ app.post('/login', (req, res) => {
             return res.status(500).json({ message: 'Internal server error' });
         }
         if (result) {
-            req.session.user = { username: user.username, email: user.email };
+            req.session.user = { username: user.username, email: user.email, admin: user.admin };
             req.session.save((saveErr) => {
                 if (saveErr) {
                     console.error('Error saving session:', saveErr);
@@ -195,7 +192,14 @@ app.delete('/deletePost/:postId', (req, res) => {
             posts = [];
         }
     }
-    const postIndex = posts.findIndex(post => post.postId === postId && post.username === req.session.user.username);
+    let postIndex;
+    
+    if (req.session.user.admin) {
+        postIndex = posts.findIndex(post => post.postId === postId);
+        
+    } else {
+        postIndex = posts.findIndex(post => post.postId === postId && post.username === req.session.user.username);
+    }
     if (postIndex === -1) {
         return res.status(404).json({ message: 'Post not found or you do not have permission to delete this post' });
     }
