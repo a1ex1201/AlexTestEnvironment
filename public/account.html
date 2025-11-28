@@ -45,22 +45,49 @@ async function loadDashBoard(){
   }
 
   async function loadUserPosts(){
+    
     try{
         const response = await fetch('/getUserPosts', {credentials: 'include'});
+        const detailResponse = await fetch('/getDashboard', {credentials: 'include'});
+        const userDetails = await detailResponse.json();
         if (response.ok) {
             const posts = await response.json();
             const feed = document.getElementById('feed');
             feed.innerHTML = '';
             posts.forEach(post => {
                 const postElement = document.createElement('div');
-                postElement.innerHTML = `
-                <div class="posts">
-                  <p class="postContent"><strong>${post.username}</strong> (${new Date(post.timestamp).toLocaleString()}):</p>
-                  <p class="postContent">${post.content}</p>
-                  <button class="deletepost" onclick="deletePost('${post.postId}')">Delete</button>
-                </div>
-                `;
-                feed.appendChild(postElement);
+                if (userDetails.admin){
+                    postElement.innerHTML = `
+                  <div class="posts">
+                    <p class="postContent"><strong>${post.username}</strong> (${new Date(post.timestamp).toLocaleString()}):</p>
+                    <p class="postContent">${post.content}</p>
+                    <button class="deletepost" onclick="deletePost('${post.postId}')">Delete</button>
+                  </div>
+                  `;
+                  feed.appendChild(postElement);
+                }
+                else{
+                  if (post.username === userDetails.username){
+                    postElement.innerHTML = `
+                    <div class="posts">
+                      <p class="postContent"><strong>${post.username}</strong> (${new Date(post.timestamp).toLocaleString()}):</p>
+                      <p class="postContent">${post.content}</p>
+                      <button class="deletepost" onclick="deletePost('${post.postId}')">Delete</button>
+                    </div>
+                    `;
+                    feed.appendChild(postElement);
+                  }
+                  else{
+                    postElement.innerHTML = `
+                    <div class="posts">
+                      <p class="postContent"><strong>${post.username}</strong> (${new Date(post.timestamp).toLocaleString()}):</p>
+                      <p class="postContent">${post.content}</p>
+                    </div>
+                    `;
+                    feed.appendChild(postElement);
+                  }
+                }
+                
             });
         } else {
             document.getElementById('feed').textContent = 'Error loading posts';

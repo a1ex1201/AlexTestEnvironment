@@ -99,7 +99,7 @@ app.get('/dashboard', (req, res) => {
     if (!req.session.user) {
         return res.status(403).json({ message: 'You must log in first!' });
     }
-    res.json({ message: 'Welcome to your dashboard', username: req.session.user.username, email: req.session.user.email  });
+    res.json({ username: req.session.user.username, email: req.session.user.email, admin: req.session.user.admin});
 });
 
 
@@ -174,7 +174,6 @@ app.get('/getUserPosts', (req, res) => {
         const userPosts = posts.filter(post => post.username === req.session.user.username);
         res.json(userPosts.reverse());
 });
-
 app.delete('/deletePost/:postId', (req, res) => {
     if (!req.session.user) {
         return res.status(403).json({ message: 'You must log in first!' });
