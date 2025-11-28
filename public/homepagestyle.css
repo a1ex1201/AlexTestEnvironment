@@ -2,6 +2,8 @@ html{
     scroll-behavior: smooth;
 }
 input.signup {
+    display:flex;
+    flex-direction: column;
     width: 90%;
     height: 10%;
     border-radius: 7.5px;
@@ -9,8 +11,7 @@ input.signup {
     background-color: #F8F9FA;
     padding: 7.5px;
     text-align: left;
-    display: block;
-    margin: center;
+    margin: auto;
     font-family: 'Segoe UI', 'Roboto', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
 }
 p.signup{
@@ -20,14 +21,19 @@ p.signup{
     font-size: large;
 }
 label.signup{
-    display:block;
     text-align: left;
+    display:flex;
+    flex-direction: column;
+    margin:auto;
+    margin-left: 1.2rem;
     font-family: 'Segoe UI', 'Roboto', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
     font-size: 8;
     font-weight: light;
+    margin-bottom: 0.3rem;
 }
 button.signup{
-    display:block;
+    display:flex;
+    flex-direction: column;
     margin: auto;
     width:50%;
     height:50px;
@@ -127,15 +133,17 @@ button.post{
     font-weight: lighter;
 }
 textarea.post {
+    display:flex;
+    flex-direction: column;
     width: 90%;
     height: 100px;
     border-radius: 7.5px;
     border-color: #6e6c6c69;
     background-color: #F8F9FA;
-    padding: 7.5px;
+    padding: 1rem;
     text-align: left;
     display: block;
-    margin: center;
+    margin: auto;
     font-family: 'Segoe UI', 'Roboto', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
 }
 
@@ -158,19 +166,20 @@ div.posts {
     word-wrap:break-word;
     overflow-wrap:break-word;
     box-sizing: border-box;
-    flex-direction: column;
-    
+    flex-direction: column; 
     
 }
 p.postContent{
-    display:block;
-    text-align: left;
-    font-family: 'Segoe UI', 'Roboto', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
-    font-size: medium;
-    white-space: pre-wrap;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    font-size: small;
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-start;
+  font-family: 'Segoe UI', 'Roboto', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+  font-size: medium;
+  white-space: normal;
+  word-wrap: break-word;
+  overflow-wrap: anywhere;
+  color: rgb(0, 0, 0);
+  margin: 4px 0;
 }
 button.deletepost{
     margin: 0.5rem 0 0 auto;
@@ -186,3 +195,53 @@ button.deletepost{
     font-size:0.6em;
     font-weight: bold;
 }
+
+p.posthead{
+    text-align: left;
+    display:flex;
+    flex-direction: column;
+    margin:auto;
+    margin-left: 1.2rem;
+    font-family: 'Segoe UI', 'Roboto', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+    font-size: 8;
+    font-weight: light;
+    margin-bottom: 0.3rem;
+}
+button.signup:hover{
+    transition-duration: 150ms;
+    background-color: #999b9a;
+    cursor:pointer;
+}
+button.post:hover{
+    transition-duration: 150ms;
+    background-color: #999b9a;
+    cursor:pointer;
+}
+button.deletepost:hover{
+    transition-duration: 150ms;
+    background-color: #999b9a;
+    cursor:pointer;
+}
+p.postContentAdmin {
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-start;
+  font-family: 'Segoe UI', 'Roboto', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+  font-size: medium;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  color: red;
+  margin: 4px 0;
+}
+
+strong {
+  display: inline-block;
+  margin-right: 6px;
+  font-size: medium;
+  font-weight: bold;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+

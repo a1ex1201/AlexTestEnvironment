@@ -1,8 +1,23 @@
 [
   {
-    "content": "hi\n",
-    "username": "test",
-    "timestamp": "2025-11-27T15:27:58.804Z",
-    "postId": "0"
+    "content": "bum",
+    "username": "a1ex",
+    "timestamp": "2025-11-28T22:46:54.524Z",
+    "postId": "2",
+    "admin": true
+  },
+  {
+    "content": "smelly bum",
+    "username": "testacc",
+    "timestamp": "2025-11-28T22:57:49.981Z",
+    "postId": "0",
+    "admin": false
+  },
+  {
+    "content": "Hello",
+    "username": "Ruby 🫨 smells",
+    "timestamp": "2025-11-28T23:01:37.446Z",
+    "postId": "2",
+    "admin": false
   }
 ]

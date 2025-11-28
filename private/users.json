@@ -1,20 +1,8 @@
 [
   {
-    "email": "test@gmail.com",
-    "username": "test",
-    "password": "$2b$10$r9qTd7FAhEPHJRfV9ueQ/eoRIp5TZzvstLQBFQaKfCvmzIKgJ4iPq",
+    "email": "alex.duffield1201@gmail.com",
+    "username": "a1ex",
+    "password": "$2b$10$210wwhDVnSgWKUY7m8W/.ujkR3M.EFj63W2KMcTf4UwBAdwr4B2.y",
     "admin": true
-  },
-  {
-    "email": "qwerty@gmail.com",
-    "username": "qwerty",
-    "password": "$2b$10$HLELtRm6RutlzuLMiqYlje9uV6Qvz8qyw3sLT6TTAt6tqkx34.9bK",
-    "admin": false
-  },
-  {
-    "email": "testacc@htm.com",
-    "username": "testacc",
-    "password": "$2b$10$iQ1Nlp/mcIbdBz5zUH76AekTCUr8OmzLDaC/DHuvnNlbD84EcuYmm",
-    "admin": false
   }
 ]
